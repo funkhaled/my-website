@@ -20,41 +20,47 @@
             background: #87CBB9;
             color: white;
             padding: 20px;
-            text-align: center;
             font-size: 24px;
             font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        header a {
+            background-color: white;
+            color: #005f73;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 16px;
+            text-decoration: none;
+            border: 2px solid #005f73;
         }
 
         .container {
             width: 90%;
             max-width: 800px;
             margin: 20px auto;
-            overflow: hidden;
         }
 
-        .section {
+        .box {
             background: white;
             padding: 20px;
-            margin: 15px 0;
             border-radius: 8px;
             box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
         }
 
         h2 {
             color: #005f73;
         }
 
-        a {
+        a.read-more {
             color: #008CBA;
             text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        ul {
-            padding-right: 20px;
+            font-weight: bold;
         }
 
         footer {
@@ -62,62 +68,35 @@
             color: white;
             text-align: center;
             padding: 15px;
-            margin-top: 20px;
+            margin-top: 30px;
             font-size: 14px;
         }
     </style>
-    <script>
-        async function loadArticles() {
-            try {
-                const response = await fetch("articles.json");
-                const articles = await response.json();
-                const articlesContainer = document.getElementById("articles");
-
-                articlesContainer.innerHTML = "";
-
-                articles.forEach(article => {
-                    const articleDiv = document.createElement("div");
-                    articleDiv.innerHTML = `
-                        <h3>${article.title}</h3>
-                        <p>${article.summary} <a href="${article.link}" target="_blank">اقرأ المزيد</a></p>
-                    `;
-                    articlesContainer.appendChild(articleDiv);
-                });
-            } catch (error) {
-                console.error("حدث خطأ أثناء تحميل المقالات:", error);
-            }
-        }
-
-        window.onload = loadArticles;
-    </script>
 </head>
 <body>
 
 <header>
     الدعم النفسي - صفحتي الشخصية
+    <a href="my-journey.html">تجربتي</a>
 </header>
 
 <div class="container">
-    <div class="section">
+    <div class="box">
         <h2>من نحن؟</h2>
-        <p>مرحبًا بك في صفحتي الشخصية، حيث أقدم مقالات ونصائح حول الدعم النفسي من مصادر موثوقة لمساعدتك على تحقيق التوازن النفسي والتغلب على التحديات.</p>
+        <p>مرحباً بك في صفحتي الشخصية، حيث أقدم مقالات ونصائح حول الدعم النفسي من مصادر موثوقة لمساعدتك على تحقيق التوازن النفسي والتغلب على التحديات.</p>
     </div>
 
-    <div class="section">
+    <div class="box">
         <h2>أحدث المقالات</h2>
-        <div id="articles">
-            <p>جاري تحميل المقالات...</p>
-        </div>
-    </div>
 
-    <div class="section">
-        <h2>نصائح نفسية سريعة</h2>
-        <ul>
-            <li>مارس التأمل لمدة 5 دقائق يوميًا.</li>
-            <li>تحدث مع شخص تثق به عند الشعور بالضغط.</li>
-            <li>احصل على قسط كافٍ من النوم يوميًا.</li>
-            <li>خصص وقتًا لممارسة هواياتك المفضلة.</li>
-        </ul>
+        <h3>كيف تتعامل مع القلق والتوتر؟</h3>
+        <p>تعرّف على طرق مثبتة علمياً لتقليل القلق وتحسين صحتك النفسية. <a href="#" class="read-more">اقرأ المزيد</a></p>
+
+        <h3>أهمية النوم للصحة النفسية</h3>
+        <p>النوم الجيد ضروري للحفاظ على توازن نفسي وعاطفي. اكتشف كيف يمكنك تحسين نومك. <a href="#" class="read-more">اقرأ المزيد</a></p>
+
+        <h3>تقنيات الاسترخاء لعلاج التوتر</h3>
+        <p>تعلّم تقنيات الاسترخاء التي تساعد على تهدئة الأعصاب وتقليل الضغط النفسي. <a href="#" class="read-more">اقرأ المزيد</a></p>
     </div>
 </div>
 
