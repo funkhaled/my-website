@@ -2,8 +2,8 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>الدعم النفسي - صفحتي الشخصية</title>
     <style>
         body {
@@ -17,50 +17,48 @@
         }
 
         header {
-            background: #87CBB9;
+            background-color: #87CBB9;
             color: white;
             padding: 20px;
-            font-size: 24px;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
+            text-align: center;
+            font-size: 28px;
+            position: relative;
         }
 
-        header a {
+        .journey-button {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
             background-color: white;
-            color: #005f73;
+            color: #087E8B;
             padding: 8px 16px;
-            border-radius: 6px;
-            font-weight: bold;
-            font-size: 16px;
+            border-radius: 20px;
             text-decoration: none;
-            border: 2px solid #005f73;
+            font-size: 14px;
         }
 
-        .container {
-            width: 90%;
-            max-width: 800px;
-            margin: 20px auto;
-        }
-
-        .box {
+        section {
             background: white;
+            margin: 20px auto;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
+            width: 90%;
+            max-width: 700px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
         h2 {
-            color: #005f73;
+            color: #087E8B;
         }
 
-        a.read-more {
-            color: #008CBA;
+        a {
+            color: #087E8B;
             text-decoration: none;
-            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
 
         footer {
@@ -68,41 +66,36 @@
             color: white;
             text-align: center;
             padding: 15px;
-            margin-top: 30px;
-            font-size: 14px;
+            margin-top: 40px;
         }
     </style>
 </head>
 <body>
+    <header>
+        الدعم النفسي - صفحتي الشخصية
+        <a class="journey-button" href="my-journey.html">تجربتي</a>
+    </header>
 
-<header>
-    الدعم النفسي - صفحتي الشخصية
-    <a href="my-journey.html">تجربتي</a>
-</header>
-
-<div class="container">
-    <div class="box">
+    <section>
         <h2>من نحن؟</h2>
-        <p>مرحباً بك في صفحتي الشخصية، حيث أقدم مقالات ونصائح حول الدعم النفسي من مصادر موثوقة لمساعدتك على تحقيق التوازن النفسي والتغلب على التحديات.</p>
-    </div>
+        <p>مرحبًا بك في صفحتي الشخصية، حيث أقدّم مقالات ونصائح حول الدعم النفسي من مصادر موثوقة لمساعدتك على تحقيق التوازن النفسي والتغلب على التحديات.</p>
+    </section>
 
-    <div class="box">
+    <section>
         <h2>أحدث المقالات</h2>
 
         <h3>كيف تتعامل مع القلق والتوتر؟</h3>
-        <p>تعرّف على طرق مثبتة علمياً لتقليل القلق وتحسين صحتك النفسية. <a href="#" class="read-more">اقرأ المزيد</a></p>
+        <p>تعرّف على طرق مثبتة علميًا لتقليل القلق وتحسين صحتك النفسية. <a href="#">اقرأ المزيد</a></p>
 
         <h3>أهمية النوم للصحة النفسية</h3>
-        <p>النوم الجيد ضروري للحفاظ على توازن نفسي وعاطفي. اكتشف كيف يمكنك تحسين نومك. <a href="#" class="read-more">اقرأ المزيد</a></p>
+        <p>النوم الجيد ضروري للحفاظ على توازن نفسي وعاطفي. اكتشف كيف يمكنك تحسين نومك. <a href="article-sleep.html">اقرأ المزيد</a></p>
 
         <h3>تقنيات الاسترخاء لعلاج التوتر</h3>
-        <p>تعلّم تقنيات الاسترخاء التي تساعد على تهدئة الأعصاب وتقليل الضغط النفسي. <a href="#" class="read-more">اقرأ المزيد</a></p>
-    </div>
-</div>
+        <p>تعلّم تقنيات الاسترخاء التي تساعد على تهدئة الأعصاب وتقليل الضغط النفسي. <a href="#">اقرأ المزيد</a></p>
+    </section>
 
-<footer>
-    © 2025 صفحتي الشخصية - جميع الحقوق محفوظة
-</footer>
-
+    <footer>
+        © 2025 صفحتي الشخصية - جميع الحقوق محفوظة
+    </footer>
 </body>
 </html>
