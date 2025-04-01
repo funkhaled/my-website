@@ -1,86 +1,97 @@
-
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>تجربتي - صفحتي الشخصية</title>
   <style>
     body {
       font-family: "Tajawal", Arial, sans-serif;
-      direction: rtl;
-      text-align: right;
+      background-color: #eef2f3;
       margin: 0;
       padding: 0;
-      background-color: #eef2f3;
       color: #333;
+      text-align: right;
     }
-    header {
-      background: #87CBB9;
+    .header {
+      background-color: #87CBB9;
       color: white;
-      padding: 20px;
-      text-align: center;
+      padding: 15px;
       position: relative;
     }
-    .journey-button {
+    .header h1 {
+      margin: 0;
+      font-size: 24px;
+      text-align: center;
+    }
+    .back-button {
       position: absolute;
-      top: 20px;
-      left: 20px;
+      top: 15px;
+      right: 15px;
       background-color: white;
-      color: #087E8B;
+      color: #087e8b;
       border: none;
-      padding: 5px 10px;
-      border-radius: 15px;
-      cursor: pointer;
+      padding: 8px 15px;
+      border-radius: 20px;
       font-weight: bold;
-      font-family: "Tajawal", Arial, sans-serif;
+      cursor: pointer;
       text-decoration: none;
     }
-    .container {
+    .content {
       padding: 20px;
       background-color: white;
       margin: 20px;
       border-radius: 10px;
     }
-    .footer-link {
-      display: block;
-      text-align: left;
-      margin: 30px 20px 10px 20px;
-      color: #087E8B;
-      font-weight: bold;
-      text-decoration: none;
+    .main-title {
+      color: #087e8b;
+      font-size: 22px;
+      margin-bottom: 10px;
     }
-    footer {
-      background: #B0D9B1;
-      color: white;
+    .footer-link {
       text-align: center;
-      padding: 10px;
-      margin-top: 20px;
+      margin-top: 40px;
+    }
+    .footer-link a {
+      color: #087e8b;
+      text-decoration: none;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <header>
-    <a href="index.html" class="journey-button">العودة</a>
-    <h1>تجربتي</h1>
-  </header>
 
-  <div class="container">
-    <h2 style="color: #087E8B;">رحلتي في بناء الموقع</h2>
-    <p>بدأت بدون أي فكرة... وانتهيت بشيء يشبهني فعلاً.</p>
-    <p>دخلت على ChatGPT من باب الفضول، بدون أي خطة أو هدف، وأثناء التصفح، ظهرت لي فكرة إنشاء موقع شخصي من ثلاث خطوات... وقتها قلت: "ليه ما أسوي موقع بسيط عن الصحة النفسية؟" خدمة اجتماعية ممكن تساعد أحد، وتخلق أثر نفسي أو اجتماعي أو حتى مادي يومًا ما.</p>
-    <p>بدأت أشتغل... لكن خل أكون صريح: كذا مرة بغيت أكنسل. صديقي يرسل لي يطلع يجيني أفكار تشتتني، وأقول لنفسي: "وش قاعد أسوي؟" بس كنت أحتاج شعور الإنجاز. أحتاج أسوي شيء ملموس من جديد.</p>
-    <p>ولأن التجربة كانت 100٪ جديدة علي – ما كنت أعرف شي عن HTML، ولا GitHub، ولا GitHub Pages، لكن مع كل خطوة، كل تراجع، وكل محاولة... كنت أتعلم، وأقرب، وأتحمس.</p>
-    <p>شوي شوي، بدأت أربط الأشياء ببعض، أتعرف على أدوات، مواقع، وأشياء أول مرة أشوفها وأسمع عنها. وكل هذا صار ممكن لأن فيه جزء بداخلي أصر يكمل.</p>
-    <p>واليوم، لما شفت موقعي يشتغل لأول مرة قدامي... حسّيت بشعور جداً جميل. مو بس لأن الصفحة طلعت حلوة، بل لأني شفت ثمرة فكرة بسيطة + تجربة جديدة + إصرار حقيقي.</p>
-    <h3 style="color: #087E8B;">رسالتي لأي شخص يقرأ هالصفحة:</h3>
-    <p>ابدأ... حتى لو بدون خطة، بدون معرفة، بدون هدف واضح. أحياناً الفضول لحاله يكفي، والتجربة بتعلمك كل شيء.</p>
+  <div class="header">
+    <a href="index.html" class="back-button">العودة</a>
+    <h1>تجربتي</h1>
   </div>
 
-  <a href="index.html" class="footer-link">العودة إلى الصفحة الرئيسية</a>
+  <div class="content">
+    <h2 class="main-title">رحلتي في بناء الموقع</h2>
+    <p>
+      بدأت بدون أي فكرة… وانتهيت بشيء يشبهني فعلاً.
+      دخلت على ChatGPT من باب الفضول، بدون أي خطة أو هدف. وأثناء التصفح، ظهرت لي فكرة إنشاء موقع شخصي من ثلاث خطوات… وقتها قلت: "ليه ما أسوي موقع بسيط عن الصحة النفسية؟" خدمة اجتماعية ممكن تساعد أحد، وتخلق أثر نفسي أو اجتماعي أو حتى مادي يومًا ما.
+    </p>
+    <p>
+      بدأت أشتغل… لكن خل أكون صريح: كذا مرة بغيت أكنسل. صديقي يرسل لي يطلع، تجيني أفكار تشتتني، وأقول لنفسي: "وش قاعد أسوي؟" بس كنت أحتاج شعور الإنجاز. أحتاج أسوي شيء ملموس من جديد.
+    </p>
+    <p>
+      ولأن التجربة كانت 100٪ جديدة علي – ما كنت أعرف شيء عن HTML، ولا GitHub، ولا GitHub Pages – لكن مع كل خطوة، كل تراجع، وكل محاولة: كنت أتعلم، وأقرب، وأتحمس.
+    </p>
+    <p>
+      شوي شوي، بدأت أربط الأشياء ببعض، أتعرف على أدوات، مواقع، وأشياء أول مرة أشوفها وأسمع عنها. وكل هذا صار ممكن لأن فيه جزء بداخلي أصرّ يكمل.
+    </p>
+    <p>
+      واليوم، لما شفت موقعي يشتغل لأول مرة قدامي… حسّيت بشعور جدًا جميل. مو بس لأن الصفحة طلعت حلوة، بل لأني شفت ثمرة فكرة بسيطة + تجربة جديدة + إصرار حقيقي.
+    </p>
+    <h3 class="main-title">رسالتي لأي شخص يقرأ هالصفحة:</h3>
+    <p>
+      لو عندك فكرة، جرب. حتى لو ما عندك خلفية، حتى لو شكيت، حتى لو غيرك قال لك "وش الفايدة؟" — يمكن تكون هالتجربة بداية شيء كبير.
+    </p>
+  </div>
 
-  <footer>
-    © 2025 صفحتي الشخصية - جميع الحقوق محفوظة
-  </footer>
+  <div class="footer-link">
+    <a href="index.html">العودة إلى الصفحة الرئيسية</a>
+  </div>
+
 </body>
 </html>
