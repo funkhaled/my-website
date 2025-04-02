@@ -14,6 +14,7 @@
       background-color: #eef2f3;
       color: #333;
     }
+
     header {
       background-color: #87CBB9;
       color: white;
@@ -21,6 +22,7 @@
       text-align: center;
       font-size: 28px;
     }
+
     .journey-button {
       display: block;
       margin: 20px auto;
@@ -31,29 +33,54 @@
       border-radius: 5px;
       width: fit-content;
     }
+
     section {
       padding: 20px;
     }
+
     h2 {
       color: #0d47a1;
     }
+
     a {
       color: #0d47a1;
       text-decoration: none;
     }
+
     .article-card {
       background-color: white;
-      padding: 20px;
+      padding: 0;
       margin-bottom: 20px;
       border-radius: 8px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      overflow: hidden;
     }
+
+    .article-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .article-card-content {
+      padding: 15px 20px;
+    }
+
     .article-card h3 {
-      margin-top: 0;
+      margin: 0;
+      font-size: 20px;
     }
+
+    .article-card .date {
+      color: #777;
+      font-size: 14px;
+      margin: 5px 0 10px;
+    }
+
     .article-card p {
       margin: 10px 0;
     }
+
     footer {
       background-color: #ccc;
       padding: 20px;
@@ -90,11 +117,22 @@
       .then(data => {
         const container = document.getElementById("articles-list");
         data.forEach(article => {
-          const div = document.createElement("div");
-          div.classList.add("article-card");
+          const card = document.createElement("div");
+          card.classList.add("article-card");
+
+          const image = document.createElement("img");
+          image.src = article.image;
+          image.alt = article.title;
+
+          const content = document.createElement("div");
+          content.classList.add("article-card-content");
 
           const title = document.createElement("h3");
           title.textContent = article.title;
+
+          const date = document.createElement("div");
+          date.classList.add("date");
+          date.textContent = `نشر بتاريخ: ${article.date}`;
 
           const summary = document.createElement("p");
           summary.textContent = article.summary;
@@ -103,11 +141,14 @@
           link.href = `article.html?slug=${encodeURIComponent(article.slug)}`;
           link.textContent = "اقرأ المزيد";
 
-          div.appendChild(title);
-          div.appendChild(summary);
-          div.appendChild(link);
+          content.appendChild(title);
+          content.appendChild(date);
+          content.appendChild(summary);
+          content.appendChild(link);
 
-          container.appendChild(div);
+          card.appendChild(image);
+          card.appendChild(content);
+          container.appendChild(card);
         });
       })
       .catch(error => {
