@@ -42,51 +42,62 @@
       color: #0d47a1;
     }
 
-    a {
-      color: #0d47a1;
-      text-decoration: none;
-    }
-
-    .article-card {
-      background-color: white;
-      padding: 0;
-      margin-bottom: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      overflow: hidden;
-    }
-
-    .article-card img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .article-card-content {
-      padding: 15px 20px;
-    }
-
-    .article-card h3 {
-      margin: 0;
-      font-size: 20px;
-    }
-
-    .article-card .date {
-      color: #777;
-      font-size: 14px;
-      margin: 5px 0 10px;
-    }
-
-    .article-card p {
-      margin: 10px 0;
-    }
-
     footer {
       background-color: #ccc;
       padding: 20px;
       text-align: center;
       font-size: 14px;
       color: #555;
+    }
+
+    /* تحسين مظهر البطاقات */
+    .article-card {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      padding: 16px;
+      margin-bottom: 24px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .article-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    }
+
+    .article-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 12px;
+    }
+
+    .article-card h3 {
+      font-size: 20px;
+      margin: 10px 0 6px;
+      color: #222;
+    }
+
+    .article-card .date {
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 10px;
+    }
+
+    .article-card p {
+      font-size: 16px;
+      color: #444;
+      margin-bottom: 12px;
+    }
+
+    .article-card a {
+      color: #0047ab;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .article-card a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -124,9 +135,6 @@
           image.src = article.image;
           image.alt = article.title;
 
-          const content = document.createElement("div");
-          content.classList.add("article-card-content");
-
           const title = document.createElement("h3");
           title.textContent = article.title;
 
@@ -141,13 +149,12 @@
           link.href = `article.html?slug=${encodeURIComponent(article.slug)}`;
           link.textContent = "اقرأ المزيد";
 
-          content.appendChild(title);
-          content.appendChild(date);
-          content.appendChild(summary);
-          content.appendChild(link);
-
           card.appendChild(image);
-          card.appendChild(content);
+          card.appendChild(title);
+          card.appendChild(date);
+          card.appendChild(summary);
+          card.appendChild(link);
+
           container.appendChild(card);
         });
       })
