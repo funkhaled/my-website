@@ -14,25 +14,50 @@
       max-width: 800px;
       margin: auto;
     }
+    .article-container {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    .article-image {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .article-content {
+      padding: 20px;
+    }
     h1 {
       color: #0d47a1;
+      margin-top: 0;
     }
-    a {
-      color: #0d47a1;
-      text-decoration: none;
+    .date {
+      color: #777;
+      font-size: 14px;
+      margin-bottom: 15px;
     }
-    .back-link {
-      margin-top: 40px;
+    a.back-link {
       display: block;
       text-align: center;
+      margin-top: 40px;
+      color: #0d47a1;
       font-weight: bold;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
 
-  <h1 id="article-title"></h1>
-  <div id="article-content"></div>
+  <div class="article-container">
+    <img id="article-image" class="article-image" src="" alt="صورة المقال" />
+    <div class="article-content">
+      <h1 id="article-title"></h1>
+      <div class="date" id="article-date"></div>
+      <div id="article-content"></div>
+    </div>
+  </div>
+
   <a class="back-link" href="index.html">العودة إلى الصفحة الرئيسية</a>
 
   <script>
@@ -46,6 +71,9 @@
         if (article) {
           document.getElementById("article-title").textContent = article.title;
           document.getElementById("article-content").innerHTML = article.content;
+          document.getElementById("article-date").textContent = `نشر بتاريخ: ${article.date}`;
+          document.getElementById("article-image").src = article.image;
+          document.getElementById("article-image").alt = article.title;
         } else {
           document.getElementById("article-title").textContent = "المقال غير موجود";
         }
