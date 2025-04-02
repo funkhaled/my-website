@@ -14,7 +14,6 @@
       color: #333;
     }
 
-    /* شريط التنقل */
     nav {
       position: fixed;
       top: 0;
@@ -52,7 +51,7 @@
     header {
       background-color: #87CBB9;
       color: white;
-      padding: 80px 20px 20px; /* عشان الشريط ما يغطي الهيدر */
+      padding: 80px 20px 20px;
       text-align: center;
       font-size: 28px;
     }
@@ -133,15 +132,21 @@
       text-decoration: underline;
     }
 
-    /* تعديل بسيط لتفادي تغطية الشريط */
     main {
       padding-top: 100px;
+    }
+
+    .about-box {
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      padding: 20px;
+      margin-top: 30px;
     }
   </style>
 </head>
 <body>
 
-  <!-- شريط التنقل -->
   <nav>
     <ul>
       <li><a href="index.html">الرئيسية</a></li>
@@ -160,6 +165,19 @@
     <section>
       <h2>من نحن؟</h2>
       <p>تحقيق التوازن النفسي والتغلب على التحديات</p>
+    </section>
+
+    <!-- قسم عن الموقع -->
+    <section class="about-box">
+      <h2>عن الموقع</h2>
+      <p>
+        يهدف هذا الموقع إلى تقديم محتوى نفسي موثوق وسهل الفهم يساعد الزوّار على التعامل مع القلق، التوتر، وقضايا الصحة النفسية اليومية.
+        جميع المقالات مبنية على مصادر علمية ولغة مبسطة تناسب الجميع.
+      </p>
+      <p>
+        نحن نؤمن أن الدعم النفسي يبدأ بالفهم، والتغيير يبدأ بخطوة بسيطة.  
+        نسعى لبناء مساحة مريحة وآمنة تساهم في تعزيز الوعي النفسي لكل شخص.
+      </p>
     </section>
 
     <section>
