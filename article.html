@@ -37,12 +37,12 @@
 
   <script>
     const urlParams = new URLSearchParams(window.location.search);
-    const title = decodeURIComponent(urlParams.get("title"));
+    const slug = decodeURIComponent(urlParams.get("slug"));
 
     fetch("articles.json")
       .then(response => response.json())
       .then(data => {
-        const article = data.find(item => item.title === title);
+        const article = data.find(item => item.slug === slug);
         if (article) {
           document.getElementById("article-title").textContent = article.title;
           document.getElementById("article-content").innerHTML = article.content;
