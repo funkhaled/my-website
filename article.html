@@ -9,9 +9,9 @@
       font-family: "Tajawal", Arial, sans-serif;
       background-color: #eef2f3;
       color: #333;
+      margin: 0;
       padding: 20px;
       line-height: 1.8;
-      margin: 0;
     }
 
     .article-container {
@@ -20,23 +20,13 @@
       background-color: white;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      overflow: hidden;
-    }
-
-    .article-image {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .article-content {
       padding: 24px;
     }
 
     h1 {
       color: #0d47a1;
-      margin-top: 0;
       font-size: 28px;
+      margin-top: 0;
     }
 
     .date {
@@ -45,10 +35,24 @@
       margin-bottom: 20px;
     }
 
+    h2 {
+      color: #0d47a1;
+      margin-top: 30px;
+    }
+
+    p, ul {
+      font-size: 17px;
+      color: #444;
+    }
+
+    ul {
+      padding-right: 20px;
+    }
+
     .back-link {
       display: block;
       text-align: center;
-      margin-top: 30px;
+      margin-top: 40px;
       color: #0d47a1;
       font-weight: bold;
       text-decoration: none;
@@ -62,12 +66,9 @@
 <body>
 
   <div class="article-container">
-    <img id="article-image" class="article-image" src="" alt="صورة المقال" />
-    <div class="article-content">
-      <h1 id="article-title"></h1>
-      <div class="date" id="article-date"></div>
-      <div id="article-content"></div>
-    </div>
+    <h1 id="article-title"></h1>
+    <div class="date" id="article-date"></div>
+    <div id="article-content"></div>
   </div>
 
   <a class="back-link" href="index.html">العودة إلى الصفحة الرئيسية</a>
@@ -84,8 +85,6 @@
           document.getElementById("article-title").textContent = article.title;
           document.getElementById("article-date").textContent = `نشر بتاريخ: ${article.date}`;
           document.getElementById("article-content").innerHTML = article.content;
-          document.getElementById("article-image").src = article.image;
-          document.getElementById("article-image").alt = article.title;
         } else {
           document.getElementById("article-title").textContent = "المقال غير موجود";
         }
