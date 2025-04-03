@@ -97,13 +97,6 @@
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
     }
 
-    .article-card img {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-      margin-bottom: 12px;
-    }
-
     .article-card h3 {
       font-size: 20px;
       margin: 10px 0 6px;
@@ -199,10 +192,6 @@
           const card = document.createElement("div");
           card.classList.add("article-card");
 
-          const image = document.createElement("img");
-          image.src = article.image;
-          image.alt = article.title;
-
           const title = document.createElement("h3");
           title.textContent = article.title;
 
@@ -217,7 +206,6 @@
           link.href = `article.html?slug=${encodeURIComponent(article.slug)}`;
           link.textContent = "اقرأ المزيد";
 
-          card.appendChild(image);
           card.appendChild(title);
           card.appendChild(date);
           card.appendChild(summary);
