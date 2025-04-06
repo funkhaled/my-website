@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>عرض المقال</title>
+  <title>الدعم النفسي – صفحتي الشخصية</title>
   <style>
     body {
       font-family: "Tajawal", Arial, sans-serif;
-      background-color: #eef2f3;
-      color: #333;
+      direction: rtl;
       margin: 0;
       padding: 0;
-      direction: rtl;
+      background-color: #eef2f3;
+      color: #333;
     }
 
     nav {
       position: fixed;
       top: 0;
       width: 100%;
-      background-color: rgba(255, 255, 255, 0.9);
+      background-color: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(6px);
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
       display: flex;
       justify-content: center;
       z-index: 1000;
@@ -48,71 +48,82 @@
       color: white;
     }
 
-    main {
-      max-width: 800px;
-      margin: 120px auto 40px;
-      background-color: #ffffff;
-      border-radius: 12px;
-      padding: 30px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    header {
+      background-color: #87CBB9;
+      color: white;
+      padding: 80px 20px 20px;
+      text-align: center;
+      font-size: 28px;
     }
 
-    h1 {
-      color: #0d47a1;
-      margin-bottom: 20px;
-    }
-
-    .date {
-      color: #777;
-      font-size: 14px;
-      margin-bottom: 20px;
+    section {
+      padding: 20px;
     }
 
     h2 {
       color: #0d47a1;
-      margin-top: 30px;
+    }
+
+    footer {
+      background-color: #ccc;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .article-card {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      padding: 16px;
+      margin-bottom: 24px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .article-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    }
+
+    .article-card h3 {
+      font-size: 20px;
+      margin: 10px 0 6px;
+      color: #222;
+    }
+
+    .article-card .date {
+      font-size: 14px;
+      color: #777;
       margin-bottom: 10px;
     }
 
-    p, li {
-      line-height: 1.8;
+    .article-card p {
       font-size: 16px;
       color: #444;
+      margin-bottom: 12px;
     }
 
-    ul {
-      padding-right: 20px;
-    }
-
-    a {
+    .article-card a {
       color: #0047ab;
       font-weight: bold;
       text-decoration: none;
     }
 
-    a:hover {
+    .article-card a:hover {
       text-decoration: underline;
     }
 
-    footer {
-      text-align: center;
+    main {
+      padding-top: 100px;
+    }
+
+    .about-box {
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
       padding: 20px;
-      background-color: #ccc;
-      color: #555;
-      font-size: 14px;
-    }
-
-    .back-link {
-      display: block;
-      margin-top: 40px;
-      text-align: center;
-      color: #0d47a1;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    .back-link:hover {
-      text-decoration: underline;
+      margin-top: 30px;
     }
   </style>
 </head>
@@ -127,12 +138,33 @@
     </ul>
   </nav>
 
-  <main>
-    <h1 id="title">تحميل...</h1>
-    <div class="date" id="date"></div>
-    <div id="content">جارٍ تحميل المحتوى...</div>
+  <header>
+    الدعم النفسي – صفحتي الشخصية
+  </header>
 
-    <a class="back-link" href="index.html">« العودة إلى الصفحة الرئيسية</a>
+  <main>
+    <section>
+      <h2>من نحن؟</h2>
+      <p>تحقيق التوازن النفسي والتغلب على التحديات</p>
+    </section>
+
+    <!-- قسم عن الموقع -->
+    <section class="about-box">
+      <h2>عن الموقع</h2>
+      <p>
+        يهدف هذا الموقع إلى تقديم محتوى نفسي موثوق وسهل الفهم يساعد الزوّار على التعامل مع القلق، التوتر، وقضايا الصحة النفسية اليومية.
+        جميع المقالات مبنية على مصادر علمية ولغة مبسطة تناسب الجميع.
+      </p>
+      <p>
+        نحن نؤمن أن الدعم النفسي يبدأ بالفهم، والتغيير يبدأ بخطوة بسيطة.  
+        نسعى لبناء مساحة مريحة وآمنة تساهم في تعزيز الوعي النفسي لكل شخص.
+      </p>
+    </section>
+
+    <section>
+      <h2>أحدث المقالات</h2>
+      <div id="articles-list"></div>
+    </section>
   </main>
 
   <footer>
@@ -140,27 +172,38 @@
   </footer>
 
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const slug = params.get("slug");
-
     fetch("articles.json")
       .then(response => response.json())
       .then(data => {
-        const article = data.find(item => item.slug === slug);
+        const container = document.getElementById("articles-list");
+        data.forEach(article => {
+          const card = document.createElement("div");
+          card.classList.add("article-card");
 
-        if (article) {
-          document.getElementById("title").textContent = article.title;
-          document.getElementById("date").textContent = `نشر بتاريخ: ${article.date}`;
-          document.getElementById("content").innerHTML = article.content;
-        } else {
-          document.getElementById("title").textContent = "المقال غير موجود";
-          document.getElementById("content").textContent = "عذرًا، لم يتم العثور على المقال المطلوب.";
-        }
+          const title = document.createElement("h3");
+          title.textContent = article.title;
+
+          const date = document.createElement("div");
+          date.classList.add("date");
+          date.textContent = `نشر بتاريخ: ${article.date}`;
+
+          const summary = document.createElement("p");
+          summary.textContent = article.summary;
+
+          const link = document.createElement("a");
+          link.href = `article.html?slug=${encodeURIComponent(article.slug)}`;
+          link.textContent = "اقرأ المزيد";
+
+          card.appendChild(title);
+          card.appendChild(date);
+          card.appendChild(summary);
+          card.appendChild(link);
+
+          container.appendChild(card);
+        });
       })
       .catch(error => {
-        console.error("Error loading the article:", error);
-        document.getElementById("title").textContent = "خطأ في تحميل المقال";
-        document.getElementById("content").textContent = "حدث خطأ أثناء تحميل المقال. حاول مرة أخرى لاحقًا.";
+        console.error("فشل تحميل المقالات:", error);
       });
   </script>
 
