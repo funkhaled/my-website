@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>الدعم النفسي – صفحتي الشخصية</title>
+  <title>مقال - الدعم النفسي</title>
   <style>
     body {
       font-family: "Tajawal", Arial, sans-serif;
@@ -56,12 +56,23 @@
       font-size: 28px;
     }
 
-    section {
-      padding: 20px;
+    main {
+      padding: 100px 20px 20px;
+      max-width: 800px;
+      margin: auto;
     }
 
-    h2 {
+    h1 {
       color: #0d47a1;
+    }
+
+    .date {
+      color: #777;
+      margin-bottom: 20px;
+    }
+
+    .content {
+      line-height: 1.8;
     }
 
     footer {
@@ -70,60 +81,20 @@
       text-align: center;
       font-size: 14px;
       color: #555;
+      margin-top: 40px;
     }
 
-    .article-card {
-      background-color: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      padding: 16px;
-      margin-bottom: 24px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .article-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-    }
-
-    .article-card h3 {
-      font-size: 20px;
-      margin: 10px 0 6px;
-      color: #222;
-    }
-
-    .article-card .date {
-      font-size: 14px;
-      color: #777;
-      margin-bottom: 10px;
-    }
-
-    .article-card p {
-      font-size: 16px;
-      color: #444;
-      margin-bottom: 12px;
-    }
-
-    .article-card a {
-      color: #0047ab;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    .article-card a:hover {
-      text-decoration: underline;
-    }
-
-    main {
-      padding-top: 100px;
-    }
-
-    .about-box {
-      background-color: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      padding: 20px;
+    .back-link {
+      display: block;
+      text-align: center;
       margin-top: 30px;
+      color: #0d47a1;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -132,7 +103,6 @@
   <nav>
     <ul>
       <li><a href="index.html">الرئيسية</a></li>
-      <li><a href="my-journey.html">رحلتي</a></li>
       <li><a href="#">عن الموقع</a></li>
       <li><a href="#">تواصل معنا</a></li>
     </ul>
@@ -143,28 +113,10 @@
   </header>
 
   <main>
-    <section>
-      <h2>من نحن؟</h2>
-      <p>تحقيق التوازن النفسي والتغلب على التحديات</p>
-    </section>
-
-    <!-- قسم عن الموقع -->
-    <section class="about-box">
-      <h2>عن الموقع</h2>
-      <p>
-        يهدف هذا الموقع إلى تقديم محتوى نفسي موثوق وسهل الفهم يساعد الزوّار على التعامل مع القلق، التوتر، وقضايا الصحة النفسية اليومية.
-        جميع المقالات مبنية على مصادر علمية ولغة مبسطة تناسب الجميع.
-      </p>
-      <p>
-        نحن نؤمن أن الدعم النفسي يبدأ بالفهم، والتغيير يبدأ بخطوة بسيطة.  
-        نسعى لبناء مساحة مريحة وآمنة تساهم في تعزيز الوعي النفسي لكل شخص.
-      </p>
-    </section>
-
-    <section>
-      <h2>أحدث المقالات</h2>
-      <div id="articles-list"></div>
-    </section>
+    <h1 id="article-title">عنوان المقال</h1>
+    <div class="date" id="article-date">تاريخ النشر</div>
+    <div class="content" id="article-content">محتوى المقال هنا.</div>
+    <a class="back-link" href="index.html">العودة إلى الصفحة الرئيسية</a>
   </main>
 
   <footer>
@@ -172,38 +124,25 @@
   </footer>
 
   <script>
-    fetch("articles.json")
+    const urlParams = new URLSearchParams(window.location.search);
+    const slug = urlParams.get('slug');
+
+    fetch('articles.json')
       .then(response => response.json())
       .then(data => {
-        const container = document.getElementById("articles-list");
-        data.forEach(article => {
-          const card = document.createElement("div");
-          card.classList.add("article-card");
+        const article = data.find(item => item.slug === slug);
 
-          const title = document.createElement("h3");
-          title.textContent = article.title;
-
-          const date = document.createElement("div");
-          date.classList.add("date");
-          date.textContent = `نشر بتاريخ: ${article.date}`;
-
-          const summary = document.createElement("p");
-          summary.textContent = article.summary;
-
-          const link = document.createElement("a");
-          link.href = `article.html?slug=${encodeURIComponent(article.slug)}`;
-          link.textContent = "اقرأ المزيد";
-
-          card.appendChild(title);
-          card.appendChild(date);
-          card.appendChild(summary);
-          card.appendChild(link);
-
-          container.appendChild(card);
-        });
+        if (article) {
+          document.getElementById('article-title').textContent = article.title;
+          document.getElementById('article-date').textContent = `نشر بتاريخ: ${article.date}`;
+          document.getElementById('article-content').innerHTML = article.content;
+        } else {
+          document.getElementById('article-title').textContent = 'المقال غير موجود';
+          document.getElementById('article-content').textContent = 'عذرًا، لم نتمكن من العثور على هذا المقال.';
+        }
       })
       .catch(error => {
-        console.error("فشل تحميل المقالات:", error);
+        console.error('حدث خطأ أثناء تحميل المقال:', error);
       });
   </script>
 
