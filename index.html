@@ -12,15 +12,16 @@
       padding: 0;
       background-color: #eef2f3;
       color: #333;
+      line-height: 1.8;
     }
 
     nav {
       position: fixed;
       top: 0;
       width: 100%;
-      background-color: rgba(255, 255, 255, 0.85);
+      background-color: rgba(255, 255, 255, 0.9);
       backdrop-filter: blur(6px);
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
       display: flex;
       justify-content: center;
       z-index: 1000;
@@ -29,16 +30,16 @@
     nav ul {
       list-style: none;
       display: flex;
-      gap: 20px;
+      gap: 24px;
       margin: 0;
-      padding: 12px 20px;
+      padding: 14px 24px;
     }
 
     nav ul li a {
       text-decoration: none;
       color: #0d47a1;
       font-weight: bold;
-      padding: 6px 12px;
+      padding: 8px 16px;
       border-radius: 6px;
       transition: background-color 0.3s ease, color 0.3s ease;
     }
@@ -51,17 +52,21 @@
     header {
       background-color: #87CBB9;
       color: white;
-      padding: 80px 20px 20px;
+      padding: 100px 20px 40px;
       text-align: center;
       font-size: 28px;
+      margin-bottom: 30px;
     }
 
     section {
       padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
     h2 {
       color: #0d47a1;
+      margin-top: 0;
     }
 
     footer {
@@ -70,6 +75,16 @@
       text-align: center;
       font-size: 14px;
       color: #555;
+      margin-top: 40px;
+    }
+
+    .about-box {
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      padding: 20px;
+      margin-top: 30px;
+      margin-bottom: 40px;
     }
 
     .article-card {
@@ -115,15 +130,7 @@
     }
 
     main {
-      padding-top: 100px;
-    }
-
-    .about-box {
-      background-color: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      padding: 20px;
-      margin-top: 30px;
+      padding-top: 120px;
     }
   </style>
 </head>
@@ -132,6 +139,7 @@
   <nav>
     <ul>
       <li><a href="index.html">الرئيسية</a></li>
+      <li><a href="my-journey.html">رحلتي</a></li>
       <li><a href="#">عن الموقع</a></li>
       <li><a href="#">تواصل معنا</a></li>
     </ul>
@@ -144,10 +152,9 @@
   <main>
     <section>
       <h2>من نحن؟</h2>
-      <p>تحقيق التوازن النفسي والتغلب على التحديات</p>
+      <p>تحقيق التوازن النفسي والتغلب على التحديات.</p>
     </section>
 
-    <!-- قسم عن الموقع -->
     <section class="about-box">
       <h2>عن الموقع</h2>
       <p>
