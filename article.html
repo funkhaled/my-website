@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>الدعم النفسي – مقال</title>
+  <title>مقال — الدعم النفسي</title>
   <style>
     body {
       font-family: "Tajawal", Arial, sans-serif;
@@ -12,13 +12,14 @@
       padding: 0;
       background-color: #eef2f3;
       color: #333;
+      line-height: 1.8;
     }
 
     nav {
       position: fixed;
       top: 0;
       width: 100%;
-      background-color: rgba(255, 255, 255, 0.85);
+      background-color: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(6px);
       box-shadow: 0 2px 4px rgba(0,0,0,0.05);
       display: flex;
@@ -43,7 +44,8 @@
       transition: background-color 0.3s ease, color 0.3s ease;
     }
 
-    nav ul li a:hover {
+    nav ul li a:hover,
+    nav ul li a.active {
       background-color: #0d47a1;
       color: white;
     }
@@ -54,25 +56,46 @@
       padding: 80px 20px 20px;
       text-align: center;
       font-size: 28px;
+      margin-bottom: 30px;
     }
 
     main {
       padding: 100px 20px 20px;
       max-width: 800px;
-      margin: auto;
+      margin: 0 auto;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     }
 
     h1 {
       color: #0d47a1;
+      margin-bottom: 20px;
+      font-size: 24px;
     }
 
     .date {
       color: #777;
+      font-size: 14px;
       margin-bottom: 20px;
     }
 
     .content {
-      line-height: 1.8;
+      font-size: 16px;
+      color: #444;
+    }
+
+    .back-link {
+      display: block;
+      margin-top: 40px;
+      text-align: center;
+      color: #0d47a1;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
     }
 
     footer {
@@ -83,19 +106,6 @@
       color: #555;
       margin-top: 40px;
     }
-
-    .back-link {
-      display: block;
-      text-align: center;
-      margin-top: 30px;
-      color: #0d47a1;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .back-link:hover {
-      text-decoration: underline;
-    }
   </style>
 </head>
 <body>
@@ -103,19 +113,21 @@
   <nav>
     <ul>
       <li><a href="index.html">الرئيسية</a></li>
-      <li><a href="#">عن الموقع</a></li>
+      <li><a href="index.html#articles">رحلتي</a></li>
+      <li><a href="index.html#about">عن الموقع</a></li>
       <li><a href="#">تواصل معنا</a></li>
     </ul>
   </nav>
 
   <header>
-    الدعم النفسي – صفحتي الشخصية
+    الدعم النفسي — مقالات تفصيلية
   </header>
 
   <main>
-    <h1 id="article-title">عنوان المقال</h1>
-    <div class="date" id="article-date">تاريخ النشر</div>
-    <div class="content" id="article-content">محتوى المقال هنا.</div>
+    <h1 id="article-title">تحميل المقال...</h1>
+    <div class="date" id="article-date"></div>
+    <div class="content" id="article-content"></div>
+
     <a class="back-link" href="index.html">العودة إلى الصفحة الرئيسية</a>
   </main>
 
@@ -124,13 +136,13 @@
   </footer>
 
   <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const slug = urlParams.get('slug');
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get('slug');
 
     fetch('articles.json')
       .then(response => response.json())
-      .then(data => {
-        const article = data.find(item => item.slug === slug);
+      .then(articles => {
+        const article = articles.find(item => item.slug === slug);
 
         if (article) {
           document.getElementById('article-title').textContent = article.title;
@@ -138,11 +150,13 @@
           document.getElementById('article-content').innerHTML = article.content;
         } else {
           document.getElementById('article-title').textContent = 'المقال غير موجود';
-          document.getElementById('article-content').textContent = 'عذرًا، لم نتمكن من العثور على هذا المقال.';
+          document.getElementById('article-content').innerHTML = '<p>عذرًا، لم نتمكن من العثور على المقال المطلوب.</p>';
         }
       })
       .catch(error => {
-        console.error('حدث خطأ أثناء تحميل المقال:', error);
+        console.error('فشل تحميل المقال:', error);
+        document.getElementById('article-title').textContent = 'خطأ في تحميل المقال';
+        document.getElementById('article-content').innerHTML = '<p>حدث خطأ أثناء تحميل المقال. حاول مرة أخرى لاحقًا.</p>';
       });
   </script>
 
