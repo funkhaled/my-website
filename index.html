@@ -16,6 +16,7 @@
       padding: 0;
       background-color: #eef2f3;
       color: #333;
+      line-height: 1.8;
     }
 
     nav {
@@ -77,18 +78,35 @@
       color: #555;
     }
 
+    .about-box {
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      padding: 20px;
+      margin-top: 30px;
+    }
+
+    /* تحسين شكل المقالات كبطاقات */
+    #articles-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
     .article-card {
       background-color: #fff;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
       padding: 16px;
-      margin-bottom: 24px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
 
     .article-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
     }
 
     .article-card h3 {
@@ -106,13 +124,15 @@
     .article-card p {
       font-size: 16px;
       color: #444;
-      margin-bottom: 12px;
+      margin-bottom: auto;
     }
 
     .article-card a {
       color: #0047ab;
       font-weight: bold;
       text-decoration: none;
+      margin-top: 15px;
+      display: inline-block;
     }
 
     .article-card a:hover {
@@ -121,14 +141,6 @@
 
     main {
       padding-top: 100px;
-    }
-
-    .about-box {
-      background-color: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      padding: 20px;
-      margin-top: 30px;
     }
   </style>
 </head>
@@ -210,5 +222,6 @@
         console.error("فشل تحميل المقالات:", error);
       });
   </script>
+
 </body>
 </html>
