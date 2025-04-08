@@ -12,16 +12,15 @@
       padding: 0;
       background-color: #eef2f3;
       color: #333;
-      line-height: 1.8;
     }
 
     nav {
       position: fixed;
       top: 0;
       width: 100%;
-      background-color: rgba(255, 255, 255, 0.9);
+      background-color: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(6px);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
       display: flex;
       justify-content: center;
       z-index: 1000;
@@ -30,16 +29,22 @@
     nav ul {
       list-style: none;
       display: flex;
-      gap: 24px;
+      gap: 20px;
       margin: 0;
-      padding: 14px 24px;
+      padding: 12px 20px;
+    }
+
+    nav ul li {
+      white-space: nowrap; /* يمنع التفاف الكلمات */
+      padding: 0 10px; /* مسافة داخلية حول كل عنصر */
+      position: relative;
     }
 
     nav ul li a {
       text-decoration: none;
       color: #0d47a1;
       font-weight: bold;
-      padding: 8px 16px;
+      padding: 6px 12px;
       border-radius: 6px;
       transition: background-color 0.3s ease, color 0.3s ease;
     }
@@ -49,24 +54,25 @@
       color: white;
     }
 
+    nav ul li.active a {
+      background-color: #0d47a1;
+      color: white;
+    }
+
     header {
       background-color: #87CBB9;
       color: white;
-      padding: 100px 20px 40px;
+      padding: 80px 20px 20px;
       text-align: center;
       font-size: 28px;
-      margin-bottom: 30px;
     }
 
     section {
       padding: 20px;
-      max-width: 800px;
-      margin: 0 auto;
     }
 
     h2 {
       color: #0d47a1;
-      margin-top: 0;
     }
 
     footer {
@@ -75,16 +81,6 @@
       text-align: center;
       font-size: 14px;
       color: #555;
-      margin-top: 40px;
-    }
-
-    .about-box {
-      background-color: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      padding: 20px;
-      margin-top: 30px;
-      margin-bottom: 40px;
     }
 
     .article-card {
@@ -130,7 +126,15 @@
     }
 
     main {
-      padding-top: 120px;
+      padding-top: 100px;
+    }
+
+    .about-box {
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      padding: 20px;
+      margin-top: 30px;
     }
   </style>
 </head>
@@ -138,7 +142,7 @@
 
   <nav>
     <ul>
-      <li><a href="index.html">الرئيسية</a></li>
+      <li class="active"><a href="index.html">الرئيسية</a></li>
       <li><a href="my-journey.html">رحلتي</a></li>
       <li><a href="#">عن الموقع</a></li>
       <li><a href="#">تواصل معنا</a></li>
@@ -155,6 +159,7 @@
       <p>تحقيق التوازن النفسي والتغلب على التحديات.</p>
     </section>
 
+    <!-- قسم عن الموقع -->
     <section class="about-box">
       <h2>عن الموقع</h2>
       <p>
@@ -162,7 +167,7 @@
         جميع المقالات مبنية على مصادر علمية ولغة مبسطة تناسب الجميع.
       </p>
       <p>
-        نحن نؤمن أن الدعم النفسي يبدأ بالفهم، والتغيير يبدأ بخطوة بسيطة.
+        نحن نؤمن أن الدعم النفسي يبدأ بالفهم، والتغيير يبدأ بخطوة بسيطة.  
         نسعى لبناء مساحة مريحة وآمنة تساهم في تعزيز الوعي النفسي لكل شخص.
       </p>
     </section>
