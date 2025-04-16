@@ -86,7 +86,6 @@
       margin-top: 30px;
     }
 
-    /* تحسين شكل المقالات كبطاقات */
     #articles-list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -184,7 +183,7 @@
   </main>
 
   <footer>
-    © 2025 - جميع الحقوق محفوظة
+    © 2025 - جميع الحقوق محفوظة | معك خطوة بخطوة نحو راحة بالك.
   </footer>
 
   <script>
@@ -221,6 +220,27 @@
       .catch(error => {
         console.error("فشل تحميل المقالات:", error);
       });
+
+    // تمييز الروابط أثناء التمرير
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll("nav ul li a");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        if (pageYOffset >= sectionTop) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) {
+          link.classList.add("active");
+        }
+      });
+    });
   </script>
 
 </body>
