@@ -141,6 +141,29 @@
     main {
       padding-top: 100px;
     }
+
+    /* زر الرجوع للأعلى */
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      background-color: #0d47a1;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      display: none;
+      transition: background-color 0.3s ease;
+      z-index: 999;
+    }
+
+    #backToTop:hover {
+      background-color: #063174;
+    }
   </style>
 </head>
 <body>
@@ -185,6 +208,9 @@
   <footer>
     © 2025 - جميع الحقوق محفوظة | معك خطوة بخطوة نحو راحة بالك.
   </footer>
+
+  <!-- زر الرجوع للأعلى -->
+  <button id="backToTop" title="الرجوع للأعلى">↑</button>
 
   <script>
     fetch("articles.json")
@@ -240,6 +266,19 @@
           link.classList.add("active");
         }
       });
+    });
+
+    // زر الرجوع للأعلى
+    const backToTopBtn = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.style.display = "block";
+      } else {
+        backToTopBtn.style.display = "none";
+      }
+    });
+    backToTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
   </script>
 
